@@ -7,6 +7,8 @@ import {populateProduce} from './store/produce';
 function App() {
 
   const dispatch = useDispatch();
+  //this triggers the POPULATE action upon the Application loading
+  //so the produce is available as soon as a user logs on
   useEffect(() => {
     dispatch(populateProduce());
   }, [dispatch]);

@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store';
 import { populateProduce } from './store/produce';
+import { populateCart } from './store/cart';
 
 
 import './index.css';
@@ -15,6 +16,7 @@ const store = configureStore();
 if(process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.populateProduce = populateProduce;
+  window.populateCart = populateCart;
 }
 
 function Root() {

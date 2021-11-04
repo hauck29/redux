@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux';
 
 function ProduceList() {
 
+  //getting the produce data (state) from the state (store) object
   const produce = useSelector(state => state.produce);
 
   const produceArr = Object.values(produce);

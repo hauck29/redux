@@ -2,6 +2,7 @@ import produceData from '../mockData/produce.json';
 
 const POPULATE = 'produce/POPULATE';
 
+//this is an action creator
 export const populateProduce = () => {
     return {
         type: POPULATE,
@@ -9,7 +10,9 @@ export const populateProduce = () => {
     };
 };
 
-
+//by convention, all reducers should have this structure
+//this should return the old state or the new state, depending on
+//the type of action that gets dispatched.
 export default function produceReducer(state = {}, action) {
     switch (action.type) {
         case POPULATE:

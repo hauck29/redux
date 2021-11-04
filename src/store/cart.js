@@ -1,22 +1,24 @@
-import produceData from '../mockData/produce.json';
 
-const POPULATE = 'cart/POPULATE';
+const ADD_TO_CART = 'cart/addToCart';
 
-export const populateCart = () => {
+//this is an action creator
+export const addToCart = (id) => {
     return {
-        type: POPULATE,
-        produce: produceData
+        type: ADD_TO_CART,
+        id
     };
 };
-//cxomment
+//comment
 export default function cartReducer(state = {}, action) {
     switch (action.type) {
-        case POPULATE:
-            const newState = {};
-            action.produce.forEach(produce => {
-                newState[produce.id] = produce;
-            });
-            return newState;
+        case ADD_TO_CART: {
+            const newCount = state[action.id]?.count ? state[action.id].count + 1 : 1;
+            return{
+                ...state,
+                [action.id]: {id: action.id, count: newCount}
+            }
+        }
+
         default:
             return state;
     }
